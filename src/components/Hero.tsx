@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Shield, Zap, Award, ArrowRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -7,7 +6,7 @@ const Hero = () => {
   const handleNavClick = (href: string) => {
     const element = document.querySelector(href);
     if (element) {
-      const offset = 80; // Espaçamento antes do conteúdo
+      const offset = 30; // Espaçamento antes do conteúdo
       const elementPosition = element.getBoundingClientRect().top;
       const offsetPosition = elementPosition + window.pageYOffset - offset;
       
@@ -26,7 +25,7 @@ const Hero = () => {
           <div className="space-y-8">
             <div className="space-y-4">
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
-                GoCam Tech
+                GoCam
                 <span className="block text-accent">Soluções Integradas</span>
                 em Tecnologia
               </h1>

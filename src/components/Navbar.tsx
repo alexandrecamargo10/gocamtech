@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Menu, X, Phone, Mail } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -23,7 +22,7 @@ const Navbar = () => {
   const handleNavClick = (href: string) => {
     const element = document.querySelector(href);
     if (element) {
-      const offset = 80; // Espaçamento antes do conteúdo
+      const offset = 30; // Espaçamento antes do conteúdo
       const elementPosition = element.getBoundingClientRect().top;
       const offsetPosition = elementPosition + window.pageYOffset - offset;
       
@@ -42,7 +41,7 @@ const Navbar = () => {
           {/* Logo */}
           <div className="flex items-center space-x-2">
             <div>
-              <h1 className="text-xl font-bold text-primary">GoCam Tech</h1>
+              <h1 className="text-xl font-bold text-primary">GoCam</h1>
               <p className="text-xs text-muted-foreground">Soluções em Tecnologia</p>
             </div>
           </div>

@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Camera, Network, Cable, Monitor, Wrench, ArrowRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -8,7 +7,7 @@ const Services = () => {
   const handleNavClick = (href: string) => {
     const element = document.querySelector(href);
     if (element) {
-      const offset = 80; // Espaçamento antes do conteúdo
+      const offset = 30; // Espaçamento antes do conteúdo
       const elementPosition = element.getBoundingClientRect().top;
       const offsetPosition = elementPosition + window.pageYOffset - offset;
       
