@@ -1,20 +1,9 @@
-
 import React from 'react';
 import { Phone, Mail, MapPin, Facebook, Instagram, Linkedin } from 'lucide-react';
-
 const Footer = () => {
   const currentYear = new Date().getFullYear();
-
-  const services = [
-    'CFTV e Câmeras de Segurança',
-    'Infraestrutura de TI',
-    'Cabeamento Estruturado',
-    'Serviços de Informática',
-    'Soluções Personalizadas',
-  ];
-
-  return (
-    <footer className="bg-primary text-white">
+  const services = ['CFTV e Câmeras de Segurança', 'Infraestrutura de TI', 'Cabeamento Estruturado', 'Serviços de Informática', 'Soluções Personalizadas'];
+  return <footer className="bg-primary text-white">
       <div className="container-custom section-padding">
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
           {/* Company Info */}
@@ -51,16 +40,11 @@ const Footer = () => {
           <div className="space-y-4">
             <h4 className="text-lg font-semibold">Nossos Serviços</h4>
             <ul className="space-y-2">
-              {services.map((service, index) => (
-                <li key={index}>
-                  <a 
-                    href="#services" 
-                    className="text-blue-100 hover:text-accent transition-colors text-sm"
-                  >
+              {services.map((service, index) => <li key={index}>
+                  <a href="#services" className="text-blue-100 hover:text-accent transition-colors text-sm">
                     {service}
                   </a>
-                </li>
-              ))}
+                </li>)}
             </ul>
           </div>
 
@@ -110,7 +94,8 @@ const Footer = () => {
               </div>
               <div className="flex items-center space-x-3">
                 <MapPin className="w-5 h-5 text-accent" />
-                <span className="text-blue-100 text-sm">São Paulo, SP</span>
+                <span className="text-blue-100 text-sm">Rio de Janeiro - RJ
+              </span>
               </div>
             </div>
             
@@ -135,8 +120,6 @@ const Footer = () => {
           </div>
         </div>
       </div>
-    </footer>
-  );
+    </footer>;
 };
-
 export default Footer;
