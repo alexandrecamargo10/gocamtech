@@ -19,27 +19,27 @@ const Hero = () => {
   };
 
   return (
-    <section id="home" className="hero-gradient text-white min-h-screen flex items-center pt-20">
+    <section id="home" className="hero-gradient text-white min-h-[85vh] flex items-center pt-20 px-4 sm:px-6 lg:px-8">
       <div className="container-custom">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
+        <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
           {/* Content */}
-          <div className="space-y-8">
+          <div className="space-y-6 lg:space-y-8">
             <div className="space-y-4">
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
+              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
                 GoCam tech
                 <span className="block text-accent">Soluções Integradas</span>
                 em Tecnologia
               </h1>
-              <p className="text-xl text-blue-100 max-w-2xl">
+              <p className="text-lg sm:text-xl text-blue-100 max-w-2xl">
                 Transforme seu negócio com nossas soluções completas em CFTV, infraestrutura de TI, 
                 cabeamento estruturado e serviços de informática personalizados.
               </p>
             </div>
 
             {/* Features */}
-            <div className="grid md:grid-cols-3 gap-4">
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
               <div className="flex items-center space-x-3">
-                <div className="w-10 h-10 bg-accent rounded-full flex items-center justify-center">
+                <div className="w-10 h-10 bg-accent rounded-full flex items-center justify-center flex-shrink-0">
                   <Shield className="w-5 h-5 text-primary" />
                 </div>
                 <div>
@@ -48,7 +48,7 @@ const Hero = () => {
                 </div>
               </div>
               <div className="flex items-center space-x-3">
-                <div className="w-10 h-10 bg-accent rounded-full flex items-center justify-center">
+                <div className="w-10 h-10 bg-accent rounded-full flex items-center justify-center flex-shrink-0">
                   <Zap className="w-5 h-5 text-primary" />
                 </div>
                 <div>
@@ -56,8 +56,8 @@ const Hero = () => {
                   <p className="text-sm text-blue-100">Infraestrutura TI</p>
                 </div>
               </div>
-              <div className="flex items-center space-x-3">
-                <div className="w-10 h-10 bg-accent rounded-full flex items-center justify-center">
+              <div className="flex items-center space-x-3 sm:col-span-2 lg:col-span-1">
+                <div className="w-10 h-10 bg-accent rounded-full flex items-center justify-center flex-shrink-0">
                   <Award className="w-5 h-5 text-primary" />
                 </div>
                 <div>
@@ -90,18 +90,18 @@ const Hero = () => {
           {/* Image/Visual */}
           <div className="lg:flex justify-center items-center hidden">
             <div className="relative">
-              <div className="w-96 h-96 bg-white/10 rounded-3xl backdrop-blur-sm border border-white/20 flex items-center justify-center">
+              <div className="w-80 h-80 xl:w-96 xl:h-96 bg-white/10 rounded-3xl backdrop-blur-sm border border-white/20 flex items-center justify-center">
                 <div className="text-center space-y-4">
-                  <div className="w-24 h-24 bg-accent rounded-full flex items-center justify-center mx-auto">
-                    <Shield className="w-12 h-12 text-primary" />
+                  <div className="w-20 h-20 xl:w-24 xl:h-24 bg-accent rounded-full flex items-center justify-center mx-auto">
+                    <Shield className="w-10 h-10 xl:w-12 xl:h-12 text-primary" />
                   </div>
                   <p className="text-lg font-semibold">Tecnologia Avançada</p>
                   <p className="text-blue-100">Soluções que fazem a diferença</p>
                 </div>
               </div>
               {/* Floating elements */}
-              <div className="absolute -top-4 -right-4 w-20 h-20 bg-accent/20 rounded-full animate-pulse"></div>
-              <div className="absolute -bottom-4 -left-4 w-16 h-16 bg-white/10 rounded-full animate-pulse delay-1000"></div>
+              <div className="absolute -top-4 -right-4 w-16 h-16 xl:w-20 xl:h-20 bg-accent/20 rounded-full animate-pulse"></div>
+              <div className="absolute -bottom-4 -left-4 w-12 h-12 xl:w-16 xl:h-16 bg-white/10 rounded-full animate-pulse delay-1000"></div>
             </div>
           </div>
         </div>
