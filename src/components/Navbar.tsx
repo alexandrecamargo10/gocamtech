@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { Menu, X, Phone, Mail } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -41,7 +42,7 @@ const Navbar = () => {
           {/* Logo */}
           <div className="flex items-center space-x-2">
             <div>
-              <h1 className="text-xl font-bold text-primary">GoCam</h1>
+              <h1 className="text-xl font-bold text-primary">GoCam tech</h1>
               <p className="text-xs text-muted-foreground">Soluções em Tecnologia</p>
             </div>
           </div>

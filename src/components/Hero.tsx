@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { Shield, Zap, Award, ArrowRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -25,7 +26,7 @@ const Hero = () => {
           <div className="space-y-8">
             <div className="space-y-4">
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
-                GoCam
+                GoCam tech
                 <span className="block text-accent">Soluções Integradas</span>
                 em Tecnologia
               </h1>

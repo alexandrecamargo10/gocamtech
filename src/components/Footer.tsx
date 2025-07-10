@@ -24,7 +24,7 @@ const Footer = () => {
                 <span className="text-primary font-bold text-lg">G</span>
               </div>
               <div>
-                <h3 className="text-xl font-bold">Gocam Tech</h3>
+                <h3 className="text-xl font-bold">GoCam tech</h3>
                 <p className="text-sm text-blue-100">Soluções em Tecnologia</p>
               </div>
             </div>
@@ -125,7 +125,7 @@ const Footer = () => {
         <div className="border-t border-white/20 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
             <p className="text-sm text-blue-100">
-              © {currentYear} Gocam Tech. Todos os direitos reservados.
+              © {currentYear} GoCam tech. Todos os direitos reservados.
             </p>
             <div className="flex space-x-6 text-sm text-blue-100">
               <a href="#" className="hover:text-accent transition-colors">Termos de Uso</a>
