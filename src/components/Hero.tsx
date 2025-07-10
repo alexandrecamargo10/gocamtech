@@ -4,6 +4,20 @@ import { Shield, Zap, Award, ArrowRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
 const Hero = () => {
+  const handleNavClick = (href: string) => {
+    const element = document.querySelector(href);
+    if (element) {
+      const offset = 80; // Espaçamento antes do conteúdo
+      const elementPosition = element.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.pageYOffset - offset;
+      
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth'
+      });
+    }
+  };
+
   return (
     <section id="home" className="hero-gradient text-white min-h-screen flex items-center pt-20">
       <div className="container-custom">
@@ -12,7 +26,7 @@ const Hero = () => {
           <div className="space-y-8">
             <div className="space-y-4">
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
-                Gocam Tech
+                GoCam Tech
                 <span className="block text-accent">Soluções Integradas</span>
                 em Tecnologia
               </h1>
@@ -58,16 +72,15 @@ const Hero = () => {
               <Button 
                 size="lg" 
                 className="bg-accent text-primary hover:bg-accent/90 btn-glow"
-                onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+                onClick={() => handleNavClick('#contact')}
               >
                 Solicitar Orçamento
                 <ArrowRight className="ml-2 w-5 h-5" />
               </Button>
               <Button 
                 size="lg" 
-                variant="outline" 
-                className="border-white text-white hover:bg-white hover:text-primary"
-                onClick={() => document.getElementById('services')?.scrollIntoView({ behavior: 'smooth' })}
+                className="bg-accent text-primary hover:bg-accent/90"
+                onClick={() => handleNavClick('#services')}
               >
                 Nossos Serviços
               </Button>

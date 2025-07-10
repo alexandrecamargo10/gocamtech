@@ -5,6 +5,20 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 
 const Services = () => {
+  const handleNavClick = (href: string) => {
+    const element = document.querySelector(href);
+    if (element) {
+      const offset = 80; // Espaçamento antes do conteúdo
+      const elementPosition = element.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.pageYOffset - offset;
+      
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth'
+      });
+    }
+  };
+
   const services = [
     {
       icon: Camera,
@@ -78,7 +92,7 @@ const Services = () => {
                 <Button 
                   variant="outline" 
                   className="w-full mt-6 group"
-                  onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+                  onClick={() => handleNavClick('#contact')}
                 >
                   Solicitar Orçamento
                   <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
@@ -100,7 +114,7 @@ const Services = () => {
           <Button 
             size="lg" 
             className="bg-accent text-primary hover:bg-accent/90 btn-glow"
-            onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+            onClick={() => handleNavClick('#contact')}
           >
             Fale com um Especialista
             <ArrowRight className="ml-2 w-5 h-5" />
