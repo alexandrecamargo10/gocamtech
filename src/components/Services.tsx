@@ -30,7 +30,7 @@ const Services = () => {
       icon: Shield,
       title: 'Instalação de Sistemas de Alarme',
       description: 'Sistemas de alarme completos para proteção residencial e empresarial.',
-      features: ['Alarmes residenciais', 'Sensores de movimento', 'Central de monitoramento', 'Controle por aplicativo'],
+      features: ['Alarmes residenciais e comerciais', 'Sensores de movimento', 'Central de monitoramento', 'Controle por aplicativo'],
       color: 'bg-amber-50 text-amber-600',
     },
     {
