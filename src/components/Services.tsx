@@ -1,5 +1,5 @@
 import React from 'react';
-import { Camera, Network, Cable, Monitor, Wrench, ArrowRight } from 'lucide-react';
+import { Camera, Network, Cable, Monitor, Wrench, ArrowRight, Shield } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 
@@ -25,6 +25,13 @@ const Services = () => {
       description: 'Instalação, configuração e manutenção de sistemas de monitoramento profissional.',
       features: ['Câmeras IP e analógicas', 'Monitoramento remoto', 'Gravação em nuvem', 'Manutenção preventiva'],
       color: 'bg-blue-50 text-blue-600',
+    },
+    {
+      icon: Shield,
+      title: 'Instalação de Sistemas de Alarme',
+      description: 'Sistemas de alarme completos para proteção residencial e empresarial.',
+      features: ['Alarmes residenciais', 'Sensores de movimento', 'Central de monitoramento', 'Controle por aplicativo'],
+      color: 'bg-amber-50 text-amber-600',
     },
     {
       icon: Network,
