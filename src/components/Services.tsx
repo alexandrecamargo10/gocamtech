@@ -3,6 +3,14 @@ import { Camera, Network, Cable, Monitor, Wrench, ArrowRight, Shield } from 'luc
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 
+// Import service images
+import serviceCftv from '@/assets/service-cftv.jpg';
+import serviceAlarm from '@/assets/service-alarm.jpg';
+import serviceNetwork from '@/assets/service-network.jpg';
+import serviceCabling from '@/assets/service-cabling.jpg';
+import serviceIt from '@/assets/service-it.jpg';
+import serviceCustom from '@/assets/service-custom.jpg';
+
 const Services = () => {
   const handleNavClick = (href: string) => {
     const element = document.querySelector(href);
@@ -25,6 +33,7 @@ const Services = () => {
       description: 'Instalação, configuração e manutenção de sistemas de monitoramento profissional.',
       features: ['Câmeras IP e analógicas', 'Monitoramento remoto', 'Gravação em nuvem', 'Manutenção preventiva'],
       color: 'bg-blue-50 text-blue-600',
+      image: serviceCftv,
     },
     {
       icon: Shield,
@@ -32,6 +41,7 @@ const Services = () => {
       description: 'Sistemas de alarme completos para proteção residencial e empresarial.',
       features: ['Alarmes residenciais e comerciais', 'Sensores de movimento', 'Central de monitoramento', 'Controle por aplicativo'],
       color: 'bg-amber-50 text-amber-600',
+      image: serviceAlarm,
     },
     {
       icon: Network,
@@ -39,6 +49,7 @@ const Services = () => {
       description: 'Projetos completos de rede, servidores e soluções de conectividade empresarial.',
       features: ['Redes locais (LAN)', 'Wi-Fi empresarial', 'Servidores', 'Firewall e VPN'],
       color: 'bg-green-50 text-green-600',
+      image: serviceNetwork,
     },
     {
       icon: Cable,
@@ -46,6 +57,7 @@ const Services = () => {
       description: 'Organização e instalação de cabeamento para máxima eficiência e performance.',
       features: ['Cabeamento UTP', 'Fibra óptica', 'Organização de racks', 'Certificação'],
       color: 'bg-purple-50 text-purple-600',
+      image: serviceCabling,
     },
     {
       icon: Monitor,
@@ -53,6 +65,7 @@ const Services = () => {
       description: 'Manutenção completa de computadores, sistemas e suporte técnico especializado.',
       features: ['Manutenção hardware', 'Instalação de software', 'Suporte remoto', 'Consultoria TI'],
       color: 'bg-orange-50 text-orange-600',
+      image: serviceIt,
     },
     {
       icon: Wrench,
@@ -60,6 +73,7 @@ const Services = () => {
       description: 'Desenvolvimento de soluções sob medida para atender suas necessidades específicas.',
       features: ['Análise personalizada', 'Projetos customizados', 'Integração de sistemas', 'Suporte dedicado'],
       color: 'bg-red-50 text-red-600',
+      image: serviceCustom,
     },
   ];
 
@@ -78,9 +92,19 @@ const Services = () => {
         {/* Services Grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
           {services.map((service, index) => (
-            <Card key={index} className="card-hover border-0 shadow-lg">
+            <Card key={index} className="card-hover border-0 shadow-lg overflow-hidden">
+              {/* Service Image */}
+              <div className="relative h-48 overflow-hidden">
+                <img 
+                  src={service.image} 
+                  alt={service.title}
+                  className="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
+              </div>
+              
               <CardHeader className="text-center">
-                <div className={`w-16 h-16 ${service.color} rounded-full flex items-center justify-center mx-auto mb-4`}>
+                <div className={`w-16 h-16 ${service.color} rounded-full flex items-center justify-center mx-auto mb-4 -mt-8 relative z-10 shadow-lg`}>
                   <service.icon className="w-8 h-8" />
                 </div>
                 <CardTitle className="text-xl mb-2">{service.title}</CardTitle>

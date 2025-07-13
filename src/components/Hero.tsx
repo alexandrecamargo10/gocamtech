@@ -2,6 +2,7 @@
 import React from 'react';
 import { Shield, Zap, Award, ArrowRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import heroSecurityTech from '@/assets/hero-security-tech.jpg';
 
 const Hero = () => {
   const handleNavClick = (href: string) => {
@@ -90,13 +91,17 @@ const Hero = () => {
           {/* Image/Visual */}
           <div className="lg:flex justify-center items-center hidden">
             <div className="relative">
-              <div className="w-80 h-80 xl:w-96 xl:h-96 bg-white/10 rounded-3xl backdrop-blur-sm border border-white/20 flex items-center justify-center">
-                <div className="text-center space-y-4">
-                  <div className="w-20 h-20 xl:w-24 xl:h-24 bg-accent rounded-full flex items-center justify-center mx-auto">
-                    <Shield className="w-10 h-10 xl:w-12 xl:h-12 text-primary" />
+              <div className="w-80 h-80 xl:w-96 xl:h-96 rounded-3xl overflow-hidden shadow-2xl">
+                <img 
+                  src={heroSecurityTech} 
+                  alt="Tecnologia Avançada em Segurança Eletrônica"
+                  className="w-full h-full object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-primary/80 via-primary/20 to-transparent flex items-end justify-center p-6">
+                  <div className="text-center space-y-2">
+                    <p className="text-lg font-semibold text-white">Tecnologia Avançada</p>
+                    <p className="text-blue-100">Equipamentos de segurança eletrônica</p>
                   </div>
-                  <p className="text-lg font-semibold">Tecnologia Avançada</p>
-                  <p className="text-blue-100">Soluções que fazem a diferença</p>
                 </div>
               </div>
               {/* Floating elements */}
