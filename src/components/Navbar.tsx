@@ -33,11 +33,12 @@ const Navbar = () => {
       <div className="container-custom">
         <div className="flex justify-between items-center py-4">
           {/* Logo */}
-          <div className="flex items-center space-x-2">
-            <div>
-              <h1 className="text-xl font-bold text-primary">GoCam</h1>
-              <p className="text-xs text-muted-foreground">Soluções em Tecnologia</p>
-            </div>
+          <div className="flex items-center">
+            <img 
+              src="/lovable-uploads/201bdb78-e68e-4722-86ca-2534593ef0ae.png" 
+              alt="GoCam - Segurança Eletrônica & Tecnologia" 
+              className="h-12 w-auto"
+            />
           </div>
 
           {/* Desktop Navigation */}
