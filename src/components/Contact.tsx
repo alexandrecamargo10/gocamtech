@@ -62,7 +62,7 @@ const Contact = () => {
     {
       icon: MapPin,
       title: 'Localização',
-      value: 'São Paulo, SP',
+      value: 'Rio de Janeiro, RJ',
       action: '#',
       color: 'bg-red-50 text-red-600',
     },
