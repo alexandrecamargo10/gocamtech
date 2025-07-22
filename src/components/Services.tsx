@@ -4,11 +4,11 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 
 // Import service images
-import serviceCftv from '@/assets/service-cftv.jpg';
-import serviceAlarm from '@/assets/service-alarm.jpg';
+import serviceCftv from '@/assets/service-cftv-cameras.jpg';
+import serviceAlarm from '@/assets/service-alarm-intelbras.jpg';
 import serviceNetwork from '@/assets/service-network.jpg';
-import serviceCabling from '@/assets/service-cabling.jpg';
-import serviceIt from '@/assets/service-it.jpg';
+import serviceCabling from '@/assets/service-structured-cabling.jpg';
+import serviceIt from '@/assets/service-it-infrastructure.jpg';
 import serviceCustom from '@/assets/service-custom.jpg';
 
 const Services = () => {
