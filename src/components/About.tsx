@@ -37,7 +37,7 @@ const About = () => {
           {/* Content */}
           <div className="space-y-6">
             <div>
-              <h2 className="text-3xl md:text-4xl font-bold text-primary mb-4">Por Que Escolher a GoCam Tech?</h2>
+              <h2 className="text-3xl md:text-4xl font-bold text-primary mb-4">Por Que Escolher a GoCam?</h2>
               <p className="text-lg text-muted-foreground">
                 Somos uma empresa especializada em soluções tecnológicas integradas, comprometida 
                 em oferecer serviços de excelência que impulsionam o crescimento do seu negócio.
