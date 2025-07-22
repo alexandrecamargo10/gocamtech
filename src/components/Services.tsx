@@ -9,7 +9,7 @@ import serviceAlarm from '@/assets/service-alarm-intelbras.jpg';
 import serviceNetwork from '@/assets/service-network.jpg';
 import serviceCabling from '@/assets/service-structured-cabling.jpg';
 import serviceIt from '@/assets/service-it-infrastructure.jpg';
-import serviceCustom from '@/assets/service-custom.jpg';
+import serviceAccessControl from '@/assets/service-access-control.jpg';
 
 const Services = () => {
   const handleNavClick = (href: string) => {
@@ -69,11 +69,11 @@ const Services = () => {
     },
     {
       icon: Wrench,
-      title: 'Soluções Personalizadas',
-      description: 'Desenvolvimento de soluções sob medida para atender suas necessidades específicas.',
-      features: ['Análise personalizada', 'Projetos customizados', 'Integração de sistemas', 'Suporte dedicado'],
+      title: 'Controles de Acesso e Fechaduras',
+      description: 'Instalação e manutenção de sistemas de controle de acesso.',
+      features: ['Controles de acesso por senha, cartão ou biometrica', 'Fechaduras elétricas e eletroímãs para portas', 'Fechaduras inteligentes'],
       color: 'bg-red-50 text-red-600',
-      image: serviceCustom,
+      image: serviceAccessControl,
     },
   ];
 

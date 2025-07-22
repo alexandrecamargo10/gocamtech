@@ -2,7 +2,7 @@
 import React from 'react';
 import { Shield, Zap, Award, ArrowRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import heroSecurityTech from '@/assets/hero-security-tech.jpg';
+import heroSmartHome from '@/assets/hero-smart-home-intelbras.jpg';
 
 const Hero = () => {
   const handleNavClick = (href: string) => {
@@ -93,7 +93,7 @@ const Hero = () => {
             <div className="relative">
               <div className="w-80 h-80 xl:w-96 xl:h-96 rounded-3xl overflow-hidden shadow-2xl">
                 <img 
-                  src={heroSecurityTech} 
+                  src={heroSmartHome} 
                   alt="Tecnologia Avançada em Segurança Eletrônica"
                   className="w-full h-full object-cover"
                 />
