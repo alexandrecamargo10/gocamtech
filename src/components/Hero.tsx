@@ -27,7 +27,7 @@ const Hero = () => {
           <div className="space-y-6 lg:space-y-8">
             <div className="space-y-4">
               <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
-                GoCam tech
+                GoCam
                 <span className="block text-accent">Soluções Integradas</span>
                 em Tecnologia
               </h1>
