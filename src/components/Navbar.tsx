@@ -54,7 +54,10 @@ const Navbar = () => {
               <Phone className="w-4 h-4" />
               <span>(21) 95943-6694</span>
             </div>
-            <Button className="bg-secondary hover:bg-secondary/90 btn-glow">
+            <Button 
+              className="bg-secondary hover:bg-secondary/90 btn-glow"
+              onClick={() => handleNavClick('#contact')}
+            >
               Solicitar Orçamento
             </Button>
           </div>
@@ -75,7 +78,10 @@ const Navbar = () => {
                 <Phone className="w-4 h-4" />
                 <span>(21) 95943-6694</span>
               </div>
-              <Button className="bg-secondary hover:bg-secondary/90 w-full">
+              <Button 
+                className="bg-secondary hover:bg-secondary/90 w-full"
+                onClick={() => handleNavClick('#contact')}
+              >
                 Solicitar Orçamento
               </Button>
             </div>
