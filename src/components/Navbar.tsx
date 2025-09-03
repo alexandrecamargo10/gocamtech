@@ -52,7 +52,7 @@ const Navbar = () => {
           <div className="hidden lg:flex items-center space-x-4">
             <div className="flex items-center space-x-2 text-sm text-muted-foreground">
               <Phone className="w-4 h-4" />
-              <span>(11) 9999-9999</span>
+              <span>(21) 95943-6694</span>
             </div>
             <Button className="bg-secondary hover:bg-secondary/90 btn-glow">
               Solicitar Orçamento
@@ -73,7 +73,7 @@ const Navbar = () => {
                 </button>)}
               <div className="flex items-center space-x-2 text-sm text-muted-foreground pt-4">
                 <Phone className="w-4 h-4" />
-                <span>(11) 9999-9999</span>
+                <span>(21) 95943-6694</span>
               </div>
               <Button className="bg-secondary hover:bg-secondary/90 w-full">
                 Solicitar Orçamento

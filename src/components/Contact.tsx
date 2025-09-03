@@ -48,8 +48,8 @@ const Contact = () => {
     {
       icon: Phone,
       title: 'Telefone',
-      value: '(11) 9999-9999',
-      action: 'tel:+5511999999999',
+      value: '(21) 95943-6694',
+      action: 'tel:+5521959436694',
       color: 'bg-green-50 text-green-600',
     },
     {
@@ -130,7 +130,7 @@ const Contact = () => {
                       type="tel"
                       value={formData.phone}
                       onChange={handleChange}
-                      placeholder="(11) 99999-9999"
+                      placeholder="(21) 95943-6694"
                     />
                   </div>
                   <div className="space-y-2">
@@ -206,7 +206,7 @@ const Contact = () => {
                 </p>
                 <Button 
                   className="bg-accent text-primary hover:bg-accent/90 btn-glow"
-                  onClick={() => window.open('https://wa.me/5511999999999', '_blank')}
+                  onClick={() => window.open('https://wa.me/5521959436694', '_blank')}
                 >
                   <Phone className="mr-2 w-4 h-4" />
                   WhatsApp
