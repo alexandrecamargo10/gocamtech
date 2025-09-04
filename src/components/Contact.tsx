@@ -55,8 +55,8 @@ const Contact = () => {
     {
       icon: Mail,
       title: 'E-mail',
-      value: 'contato@gocamtech.com.br',
-      action: 'mailto:contato@gocamtech.com.br',
+      value: 'contato@gocamtecnologia.com.br',
+      action: 'mailto:contato@gocamtecnologia.com.br',
       color: 'bg-blue-50 text-blue-600',
     },
     {
