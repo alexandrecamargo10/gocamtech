@@ -1,47 +1,91 @@
 
-import React, { useState } from 'react';
+import React from 'react';
 import { Phone, Mail, MapPin, Clock, Send } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
-import { Label } from '@/components/ui/label';
 import { useToast } from '@/hooks/use-toast';
+import { useForm } from 'react-hook-form';
+import { zodResolver } from '@hookform/resolvers/zod';
+import { z } from 'zod';
+import { isValidPhoneNumber } from 'libphonenumber-js';
+import emailjs from '@emailjs/browser';
+import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form';
+
+// Schema de validação
+const contactFormSchema = z.object({
+  name: z.string().min(2, "Nome deve ter pelo menos 2 caracteres"),
+  email: z.string().email("E-mail inválido"),
+  phone: z.string().optional().refine((phone) => {
+    if (!phone || phone.trim() === '') return true;
+    
+    // Remove formatação para validar
+    const cleanPhone = phone.replace(/\D/g, '');
+    
+    // Verifica se tem DDD + número (10 ou 11 dígitos)
+    if (cleanPhone.length < 10 || cleanPhone.length > 11) {
+      return false;
+    }
+    
+    // Verifica se é um número brasileiro válido
+    const formattedPhone = '+55' + cleanPhone;
+    return isValidPhoneNumber(formattedPhone, 'BR');
+  }, "Telefone brasileiro inválido (ex: (21) 95943-6694)"),
+  subject: z.string().min(3, "Assunto deve ter pelo menos 3 caracteres"),
+  message: z.string().min(10, "Mensagem deve ter pelo menos 10 caracteres")
+});
+
+type ContactFormData = z.infer<typeof contactFormSchema>;
 
 const Contact = () => {
   const { toast } = useToast();
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    phone: '',
-    subject: '',
-    message: ''
-  });
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    
-    // Simulate form submission
-    toast({
-      title: "Mensagem enviada com sucesso!",
-      description: "Entraremos em contato em breve. Obrigado pelo interesse!",
-    });
-    
-    // Reset form
-    setFormData({
+  
+  const form = useForm<ContactFormData>({
+    resolver: zodResolver(contactFormSchema),
+    defaultValues: {
       name: '',
       email: '',
       phone: '',
       subject: '',
       message: ''
-    });
-  };
+    }
+  });
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value
-    });
+  const onSubmit = async (data: ContactFormData) => {
+    try {
+      // Configuração do EmailJS (será necessário configurar as chaves)
+      const templateParams = {
+        from_name: data.name,
+        from_email: data.email,
+        from_phone: data.phone || 'Não informado',
+        subject: data.subject,
+        message: data.message,
+        to_email: 'contato@gocamtecnologia.com.br'
+      };
+
+      // Para funcionar, será necessário configurar as chaves do EmailJS
+      // Por enquanto, vamos simular o envio
+      console.log('Enviando email:', templateParams);
+      
+      // Simular delay de envio
+      await new Promise(resolve => setTimeout(resolve, 1000));
+      
+      toast({
+        title: "Mensagem enviada com sucesso!",
+        description: "Entraremos em contato em breve. Obrigado pelo interesse!",
+      });
+      
+      form.reset();
+      
+    } catch (error) {
+      console.error('Erro ao enviar email:', error);
+      toast({
+        title: "Erro ao enviar mensagem",
+        description: "Tente novamente ou entre em contato por telefone.",
+        variant: "destructive"
+      });
+    }
   };
 
   const contactInfo = [
@@ -94,80 +138,111 @@ const Contact = () => {
               <CardTitle className="text-2xl text-primary">Envie sua Mensagem</CardTitle>
             </CardHeader>
             <CardContent>
-              <form onSubmit={handleSubmit} className="space-y-6">
-                <div className="grid md:grid-cols-2 gap-4">
-                  <div className="space-y-2">
-                    <Label htmlFor="name">Nome Completo *</Label>
-                    <Input
-                      id="name"
+              <Form {...form}>
+                <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
+                  <div className="grid md:grid-cols-2 gap-4">
+                    <FormField
+                      control={form.control}
                       name="name"
-                      value={formData.name}
-                      onChange={handleChange}
-                      required
-                      placeholder="Seu nome completo"
+                      render={({ field }) => (
+                        <FormItem>
+                          <FormLabel>Nome Completo *</FormLabel>
+                          <FormControl>
+                            <Input placeholder="Seu nome completo" {...field} />
+                          </FormControl>
+                          <FormMessage />
+                        </FormItem>
+                      )}
                     />
-                  </div>
-                  <div className="space-y-2">
-                    <Label htmlFor="email">E-mail *</Label>
-                    <Input
-                      id="email"
+                    <FormField
+                      control={form.control}
                       name="email"
-                      type="email"
-                      value={formData.email}
-                      onChange={handleChange}
-                      required
-                      placeholder="seu@email.com"
+                      render={({ field }) => (
+                        <FormItem>
+                          <FormLabel>E-mail *</FormLabel>
+                          <FormControl>
+                            <Input type="email" placeholder="seu@email.com" {...field} />
+                          </FormControl>
+                          <FormMessage />
+                        </FormItem>
+                      )}
                     />
                   </div>
-                </div>
 
-                <div className="grid md:grid-cols-2 gap-4">
-                  <div className="space-y-2">
-                    <Label htmlFor="phone">Telefone</Label>
-                    <Input
-                      id="phone"
+                  <div className="grid md:grid-cols-2 gap-4">
+                    <FormField
+                      control={form.control}
                       name="phone"
-                      type="tel"
-                      value={formData.phone}
-                      onChange={handleChange}
-                      placeholder="(21) 95943-6694"
+                      render={({ field }) => (
+                        <FormItem>
+                          <FormLabel>Telefone</FormLabel>
+                          <FormControl>
+                            <Input 
+                              type="tel" 
+                              placeholder="(21) 95943-6694" 
+                              {...field}
+                              onChange={(e) => {
+                                // Formatar telefone durante a digitação
+                                let value = e.target.value.replace(/\D/g, '');
+                                if (value.length <= 11) {
+                                  if (value.length > 6) {
+                                    value = value.replace(/(\d{2})(\d{4,5})(\d{4})/, '($1) $2-$3');
+                                  } else if (value.length > 2) {
+                                    value = value.replace(/(\d{2})(\d+)/, '($1) $2');
+                                  }
+                                  field.onChange(value);
+                                }
+                              }}
+                            />
+                          </FormControl>
+                          <FormMessage />
+                        </FormItem>
+                      )}
                     />
-                  </div>
-                  <div className="space-y-2">
-                    <Label htmlFor="subject">Assunto *</Label>
-                    <Input
-                      id="subject"
+                    <FormField
+                      control={form.control}
                       name="subject"
-                      value={formData.subject}
-                      onChange={handleChange}
-                      required
-                      placeholder="Como podemos ajudar?"
+                      render={({ field }) => (
+                        <FormItem>
+                          <FormLabel>Assunto *</FormLabel>
+                          <FormControl>
+                            <Input placeholder="Como podemos ajudar?" {...field} />
+                          </FormControl>
+                          <FormMessage />
+                        </FormItem>
+                      )}
                     />
                   </div>
-                </div>
 
-                <div className="space-y-2">
-                  <Label htmlFor="message">Mensagem *</Label>
-                  <Textarea
-                    id="message"
+                  <FormField
+                    control={form.control}
                     name="message"
-                    value={formData.message}
-                    onChange={handleChange}
-                    required
-                    rows={5}
-                    placeholder="Descreva seu projeto ou necessidade..."
+                    render={({ field }) => (
+                      <FormItem>
+                        <FormLabel>Mensagem *</FormLabel>
+                        <FormControl>
+                          <Textarea
+                            rows={5}
+                            placeholder="Descreva seu projeto ou necessidade..."
+                            {...field}
+                          />
+                        </FormControl>
+                        <FormMessage />
+                      </FormItem>
+                    )}
                   />
-                </div>
 
-                <Button 
-                  type="submit" 
-                  size="lg" 
-                  className="w-full bg-secondary hover:bg-secondary/90 btn-glow"
-                >
-                  <Send className="mr-2 w-5 h-5" />
-                  Enviar Mensagem
-                </Button>
-              </form>
+                  <Button 
+                    type="submit" 
+                    size="lg" 
+                    className="w-full bg-secondary hover:bg-secondary/90 btn-glow"
+                    disabled={form.formState.isSubmitting}
+                  >
+                    <Send className="mr-2 w-5 h-5" />
+                    {form.formState.isSubmitting ? 'Enviando...' : 'Enviar Mensagem'}
+                  </Button>
+                </form>
+              </Form>
             </CardContent>
           </Card>
 
