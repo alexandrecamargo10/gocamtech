@@ -60,10 +60,10 @@ const Contact = () => {
       const PUBLIC_KEY = 'HPdWqdyxTXG41vlvS';
 
       const templateParams = {
-        from_name: data.name,
-        from_email: data.email,
-        from_phone: data.phone || 'Não informado',
-        subject: data.subject,
+        name: data.name,
+        email: data.email,
+        phonenumber: data.phone || 'Não informado',
+        title: data.subject,
         message: data.message,
         to_email: 'contato@gocamtecnologia.com.br'
       };
