@@ -54,10 +54,10 @@ const Contact = () => {
 
   const onSubmit = async (data: ContactFormData) => {
     try {
-      // Configuração do EmailJS - IMPORTANTE: Configure suas chaves
-      const SERVICE_ID = 'YOUR_SERVICE_ID'; // Substitua pela sua Service ID do EmailJS
-      const TEMPLATE_ID = 'YOUR_TEMPLATE_ID'; // Substitua pela sua Template ID do EmailJS  
-      const PUBLIC_KEY = 'YOUR_PUBLIC_KEY'; // Substitua pela sua Public Key do EmailJS
+      // Configuração do EmailJS
+      const SERVICE_ID = 'service_8jq1rxb';
+      const TEMPLATE_ID = 'template_xhou0ve';
+      const PUBLIC_KEY = 'HPdWqdyxTXG41vlvS';
 
       const templateParams = {
         from_name: data.name,
