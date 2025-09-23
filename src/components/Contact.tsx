@@ -54,7 +54,11 @@ const Contact = () => {
 
   const onSubmit = async (data: ContactFormData) => {
     try {
-      // Configuração do EmailJS (será necessário configurar as chaves)
+      // Configuração do EmailJS - IMPORTANTE: Configure suas chaves
+      const SERVICE_ID = 'YOUR_SERVICE_ID'; // Substitua pela sua Service ID do EmailJS
+      const TEMPLATE_ID = 'YOUR_TEMPLATE_ID'; // Substitua pela sua Template ID do EmailJS  
+      const PUBLIC_KEY = 'YOUR_PUBLIC_KEY'; // Substitua pela sua Public Key do EmailJS
+
       const templateParams = {
         from_name: data.name,
         from_email: data.email,
@@ -64,12 +68,13 @@ const Contact = () => {
         to_email: 'contato@gocamtecnologia.com.br'
       };
 
-      // Para funcionar, será necessário configurar as chaves do EmailJS
-      // Por enquanto, vamos simular o envio
-      console.log('Enviando email:', templateParams);
-      
-      // Simular delay de envio
-      await new Promise(resolve => setTimeout(resolve, 1000));
+      // Enviar email via EmailJS
+      await emailjs.send(
+        SERVICE_ID,
+        TEMPLATE_ID,
+        templateParams,
+        PUBLIC_KEY
+      );
       
       toast({
         title: "Mensagem enviada com sucesso!",
